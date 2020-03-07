@@ -46,7 +46,6 @@ namespace AmazonPinpoint.Controllers
             if (!ValidationHelper.IsValidMessageType(model.MessageType))
                 return BadRequestResult(SMS);
 
-
             var client = new AmazonPinpointClient(_awsCredentials, RegionEndpoint.GetBySystemName(_awsSettings.Region));
 
             SendMessagesRequest sendRequest =
@@ -111,7 +110,6 @@ namespace AmazonPinpoint.Controllers
                         }
                     }
                 };
-
                 try
                 {
                     SendVoiceMessageResponse response = await client.SendVoiceMessageAsync(sendVoiceMessageRequest);
